@@ -1,0 +1,2 @@
+# meditation_activities
+ 
