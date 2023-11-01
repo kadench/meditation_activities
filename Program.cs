@@ -1,40 +1,55 @@
 using System;
 
+// Main class Program runs the basic methods for the entire program.
 class Program {
         static void Main(string[] args) {
-            Menu();
-            MenuChoice();
+            khMenu();
+            string khUsersMenuChoice = khMenuChoice();
+            khCallActivity(khUsersMenuChoice);
+            
         }
 
         // Displays a menu for the user
-        static void Menu()
+        static void khMenu()
         {
-                print("Welcome to the meditation activity!");
-                print("");
-                print(" Available Activities ");
-                print("----------------------");
-                print("1. Reflection Activity");
-                print("2. Breathing Activity");
-                print("3. Listing Activity");
-                print("----------------------");
+                Console.WriteLine("Welcome to the meditation activity!");
+                Console.WriteLine("");
+                Console.WriteLine(" Available Activities ");
+                Console.WriteLine("----------------------");
+                Console.WriteLine("1. Reflection Activity");
+                Console.WriteLine("2. Breathing Activity");
+                Console.WriteLine("3. Listing Activity");
+                Console.WriteLine("----------------------");
         }
 
-        // Calls the correct Activity through the number chosen
-        static Activity MenuChoice() {
-                string khActivity = inputstr("Choose an activity: ");
-                        Activity khChosenActivity = new Activity(khActivity);
-                        return khChosenActivity; 
-        }
-
-        // Changes Console.WriteLine to print for simplicity reasons
-        static void print(string khStringToPrint) {
-                Console.WriteLine(khStringToPrint);
+        // Gets the user's chosen activity.
+        static string khMenuChoice() {
+                Console.Write("Choose an activity: ");
+                string khActivity = Console.ReadLine();
+                        return khActivity.ToLower(); 
         }
         
-        // Changes Console.ReadLine to inputstr for simplicity reasons
-        static string inputstr(string khStringToPrint) {
-                Console.Write(khStringToPrint);
-                string khReadLine = Console.ReadLine();
-                return khReadLine;
+        // Uses the user's input to trigger a certain activity.
+        static void khCallActivity(string khMenuChoice) {
+                string[] khReflectionActivityStrings =  {"reflection activity", "reflection", "r", "1"};
+                string[] khBreathingActivityStrings =  {"breathing activity", "breathing", "b", "2"};
+                string[] khListingActivityStrings =  {"listing activity", "listing", "l", "3"};
+                if (khReflectionActivityStrings.Contains(khMenuChoice)) {
+                        int khIntMenuChoice = 1;
+                        Activity khNewActivity = new Activity(khIntMenuChoice);
+                }
+
+                else if (khBreathingActivityStrings.Contains(khMenuChoice)) {
+                        int khIntMenuChoice = 2;
+                        Activity khNewActivity = new Activity(khIntMenuChoice);
+
+                }
+
+                else if (khListingActivityStrings.Contains(khMenuChoice)) {
+                        int khIntMenuChoice = 3;
+                        Activity khNewActivity = new Activity(khIntMenuChoice);
+
+                }
+                         
         }
-}
+        }
