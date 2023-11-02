@@ -2,25 +2,13 @@ using System;
 
 // Main class Program runs the basic methods for the entire program.
 class Program {
-        static void Main(string[] args) {
-        // repeat running program until user quits. 
-        
-        // Set bool to false and run the program until true.
-        bool khContinueProgram = true;
-        do {
-            khMenu();
-            string khUsersMenuChoice = khMenuChoice();
-            khCallActivity(khUsersMenuChoice);
-            khContinueProgram = khProgramEndMessage();
-           } while(khContinueProgram == true);
-            
-        }
 
         // Displays a menu for the user
         static void khMenu()
         {
-                Console.WriteLine("Welcome to the meditation activity!");
-                Console.WriteLine("");
+                Console.Clear();
+                // Welcome the user to the program
+                Console.WriteLine("Welcome to the Meditation Activity Program (MAP) Menu!");
                 Console.WriteLine(" Available Activities ");
                 Console.WriteLine("----------------------");
                 Console.WriteLine("1. Reflection Activity");
@@ -37,7 +25,7 @@ class Program {
         }
         
         // Uses the user's input to trigger a certain activity.
-        static void khCallActivity(string khMenuChoice) {
+        static bool khCallActivity(string khMenuChoice) {
                 
                 // Create lists for accepted triggers for each activity
                 string[] khReflectionActivityStrings =  {"reflection activity", "reflection", "r", "1"};
@@ -47,18 +35,24 @@ class Program {
                 // Trigger the specified activity if the input matches a string from one of the lists.
                 if (khReflectionActivityStrings.Contains(khMenuChoice)) {
                         int khIntMenuChoice = 1;
-                        Activity _ = new Activity(khIntMenuChoice); // Not giving the activity a variable name as it is not called in the program class.
+                        Activity khNewActivity = new Activity();
+                        khNewActivity.SetActivity(khIntMenuChoice);
+                        return true;
                 }
 
                 else if (khBreathingActivityStrings.Contains(khMenuChoice)) {
                         int khIntMenuChoice = 2;
-                        Activity _ = new Activity(khIntMenuChoice); // Not giving the activity a variable name as it is not called in the program class.
+                        Activity khNewActivity = new Activity();
+                        khNewActivity.SetActivity(khIntMenuChoice); 
+                        return true;
 
                 }
 
                 else if (khListingActivityStrings.Contains(khMenuChoice)) {
                         int khIntMenuChoice = 3;
-                        Activity _ = new Activity(khIntMenuChoice); // Not giving the activity a variable name as it is not called in the program class.
+                        Activity khNewActivity = new Activity();
+                        khNewActivity.SetActivity(khIntMenuChoice);
+                        return true;
 
                 }
                 
@@ -66,8 +60,8 @@ class Program {
                         Console.WriteLine($"\"{khMenuChoice}\" does not match any of the above activities. Try again.");
                         Console.Write("Press the enter key to continue: ");
                         Console.ReadLine();
+                        return false;
                 }
-                         
                 }
         
         // Runs the program ending
@@ -81,6 +75,7 @@ class Program {
                         return true;
                 }
                 else if (khUserAnswer.ToLower() == "n") {
+                        
                         return false;
                 }
                 else {
@@ -90,4 +85,21 @@ class Program {
                 }
                   } while(true);
             }
+        
+        // Runs the main program
+        static void Main(string[] args) {
+        // Set bool to false and run the program until true.
+        bool khContinueProgram = true;
+        
+        // repeat running program until user quits. 
+        do {
+            khMenu();
+            string khUsersMenuChoice = khMenuChoice();
+            bool khValidAnswer = khCallActivity(khUsersMenuChoice);
+            if (khValidAnswer == true) {
+            khContinueProgram = khProgramEndMessage();
+            }
+           } while(khContinueProgram == true);
+            
+        }
         }
