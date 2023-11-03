@@ -1,5 +1,3 @@
-using System;
-
 // Main class Program runs the basic methods for the entire program.
 class Program {
 
@@ -34,24 +32,24 @@ class Program {
 
                 // Trigger the specified activity if the input matches a string from one of the lists.
                 if (khReflectionActivityStrings.Contains(khMenuChoice)) {
-                        int khIntMenuChoice = 1;
+                        string khActivityChoice = "reflection";
                         Activity khNewActivity = new Activity();
-                        khNewActivity.SetActivity(khIntMenuChoice);
+                        khNewActivity.SetActivityInfo(khActivityChoice);
                         return true;
                 }
 
                 else if (khBreathingActivityStrings.Contains(khMenuChoice)) {
-                        int khIntMenuChoice = 2;
+                        string khActivityChoice = "breathing";
                         Activity khNewActivity = new Activity();
-                        khNewActivity.SetActivity(khIntMenuChoice); 
+                        khNewActivity.SetActivityInfo(khActivityChoice); 
                         return true;
 
                 }
 
                 else if (khListingActivityStrings.Contains(khMenuChoice)) {
-                        int khIntMenuChoice = 3;
+                        string khActivityChoice = "listing";
                         Activity khNewActivity = new Activity();
-                        khNewActivity.SetActivity(khIntMenuChoice);
+                        khNewActivity.SetActivityInfo(khActivityChoice);
                         return true;
 
                 }
