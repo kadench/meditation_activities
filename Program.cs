@@ -34,12 +34,16 @@ class Program {
                 if (khReflectionActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "reflection";
                         Activity khNewActivity = new Activity(khActivityChoice);
+                        khNewActivity.KhBeforeActivity();
+                        khNewActivity.KhRunActivity();
                         return true;
                 }
 
                 else if (khBreathingActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "breathing";
                         Activity khNewActivity = new Activity(khActivityChoice); 
+                        khNewActivity.KhBeforeActivity();
+                        khNewActivity.KhRunActivity();
                         return true;
 
                 }
@@ -47,6 +51,8 @@ class Program {
                 else if (khListingActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "listing";
                         Activity khNewActivity = new Activity(khActivityChoice);
+                        khNewActivity.KhBeforeActivity();
+                        khNewActivity.KhRunActivity();
                         return true;
 
                 }
