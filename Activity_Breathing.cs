@@ -55,7 +55,6 @@ class BreathingActivity : Activity
 {
     KhStartingMessage(_khActivityName);
     int khBreathingDuration = Kh4or7();
-    var khStartTime = DateTime.UtcNow;
     
     for (int i = 1; i <= 4; i++) {
         // Continue the loop until 4 breaths are completed
