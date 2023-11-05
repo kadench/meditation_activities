@@ -1,3 +1,14 @@
+// Purpose: The program class, or a class that will run all the other given classes.
+// Authorship: By Kaden Hansen Copyright © 11/4/23,
+// Sources:
+// https://stackoverflow.com/questions/5945533/how-to-execute-the-loop-for-specific-time | Implemented the time duration in the loop for each activity.
+// https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0 | Implement Thread.Sleep
+// https://learn.microsoft.com/en-us/dotnet/api/system.globalization.textinfo.totitlecase?view=net-7.0 | Learning how to make title case text
+// https://chat.openai.com/c/4ef1f98f-186c-4023-ad60-748d883d03a6 | Formatting and other solution help.
+// https://byui-cse.github.io/cse210-course-2023/unit04/develop.html | Used to structure the class and how it should look.
+// https://github.com/LisaCJHeinhold | Used Lisa's code for help on parts.
+// https://github.com/eeshurtliff | Got help with the animation and calls to different classes.
+
 // Main class Program runs the basic methods for the entire program.
 class Program {
 

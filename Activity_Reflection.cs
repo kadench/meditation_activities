@@ -1,6 +1,13 @@
-using System.Globalization;
-using Microsoft.VisualBasic;
-
+// Purpose: Runs the reflection activity.
+// Authorship: By Kaden Hansen Copyright © 11/4/23,
+// Sources:
+// https://stackoverflow.com/questions/5945533/how-to-execute-the-loop-for-specific-time | Implemented the time duration in the loop for each activity.
+// https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0 | Implement Thread.Sleep
+// https://learn.microsoft.com/en-us/dotnet/api/system.globalization.textinfo.totitlecase?view=net-7.0 | Learning how to make title case text
+// https://chat.openai.com/c/4ef1f98f-186c-4023-ad60-748d883d03a6 | Formatting and other solution help.
+// https://byui-cse.github.io/cse210-course-2023/unit04/develop.html | Used to structure the class and how it should look.
+// https://github.com/LisaCJHeinhold | Looked at Lisa's code for help on parts.
+// https://github.com/eeshurtliff | Got help with the animation and calls to different classes.
 class ReflectionActivity : Activity {
     private List<string> _khPrompts = new List<string>{
         "Think of a time when you stood up for someone else.",
@@ -25,15 +32,9 @@ class ReflectionActivity : Activity {
         _khQuestionsThrough = 0;
     }
     
-    // Gets a random index from a specific list.
-    private int KhGetRandomIndexFromList(List<string> khSpecificList) {
-        Random khRandom = new Random();
-        int khRandomIndex = khRandom.Next(khSpecificList.Count);
-        return khRandomIndex;
-    }
 
     // Selects a random string from the prompts list.
-    private string KhChooseRandomPrompt(int khRandomIndex) {
+    private string KhSetRandomPrompt(int khRandomIndex) {
         string khRandomString = _khPrompts[khRandomIndex];
         return khRandomString;
     }
@@ -41,7 +42,7 @@ class ReflectionActivity : Activity {
     // Gets the prompt for the current session
     private string KhGetPrompt() {
         int khRandomPromptIndex = KhGetRandomIndexFromList(_khPrompts);
-        string khRandomPrompt = KhChooseRandomPrompt(khRandomPromptIndex);
+        string khRandomPrompt = KhSetRandomPrompt(khRandomPromptIndex);
         return khRandomPrompt;
     }
 
@@ -68,13 +69,16 @@ class ReflectionActivity : Activity {
             if (DateTime.UtcNow - khStartTime >= TimeSpan.FromSeconds(_khDuration)) {
                 break;
             }
+            if (i <= 8) {
+                break;
+            }
 
             // Waits and asks the next question
             Thread.Sleep(1000);
             Console.Write($"{_khQuestions[i]}: ");
             Console.ReadLine();
             _khQuestionsThrough += 1;
-            KhCreateAnimation(_khAnimation, 2);
+            KhCreateAnimation(_khAnimation, 2, 0);
         }
     }
     // Only say you've done it if the user answers one question. Otherwise the choice might've been a mistake.

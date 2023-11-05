@@ -1,7 +1,13 @@
+// Purpose: Be a base class for all child activities that will use the activity's methods,
+// Authorship: By Kaden Hansen Copyright © 11/4/23,
 // Sources:
 // https://stackoverflow.com/questions/5945533/how-to-execute-the-loop-for-specific-time | Implemented the time duration in the loop for each activity.
 // https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0 | Implement Thread.Sleep
 // https://learn.microsoft.com/en-us/dotnet/api/system.globalization.textinfo.totitlecase?view=net-7.0 | Learning how to make title case text
+// https://chat.openai.com/c/4ef1f98f-186c-4023-ad60-748d883d03a6 | Formatting and other solution help.
+// https://byui-cse.github.io/cse210-course-2023/unit04/develop.html | Used to structure the class and how it should look.
+// https://github.com/LisaCJHeinhold | Used Lisa's code for help on parts.
+// https://github.com/eeshurtliff | Got help with the animation and calls to different classes.
 
 using System.Globalization;
 
@@ -29,6 +35,15 @@ class Activity {
         }
     }
     
+    // Gets a random index from a specific list.
+    protected int KhGetRandomIndexFromList(List<string> khSpecificList) {
+        Random khRandom = new Random();
+        int khRandomIndex = khRandom.Next(khSpecificList.Count);
+        return khRandomIndex;
+    }
+
+
+
     // Writes the starting message of the activity
     protected void KhStartingMessage(string _khActivityName) {
 
@@ -47,7 +62,6 @@ class Activity {
             Console.Write("How much time do you want to spend on this activity in minutes?: ");
             try {
                 int khDuration = int.Parse(Console.ReadLine());
-                
                 // Changes the given minutes to seconds
                 khDuration *= 60;
                 khDurationTrue = true;
@@ -93,7 +107,7 @@ class Activity {
     }
 
     // Sets up the animation list animation.
-    protected void KhCreateAnimation(List<string> _khAnimation, int time) {
+    protected void KhCreateAnimation(List<string> _khAnimation, int time, int khWordLength) {
     {
 
         DateTime startTime = DateTime.Now;
@@ -106,7 +120,10 @@ class Activity {
             string khAnimationItem = _khAnimation[i];
             Console.Write(khAnimationItem);
             Thread.Sleep(1000);
-            Console.Write("\b \b");
+            int khCurrentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(khWordLength, khCurrentLineCursor);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(khWordLength, khCurrentLineCursor);
             
             i++;
  
@@ -124,7 +141,7 @@ class Activity {
     public void KhBeforeActivity() {
         Console.WriteLine();
         Console.Write("Please Wait ");
-        KhCreateAnimation(_khAnimation, 3);
+        KhCreateAnimation(_khAnimation, 3, 12);
         Console.Clear();
 }
 
@@ -134,11 +151,13 @@ class Activity {
             ReflectionActivity khNewReflectionActivity = new ReflectionActivity(_khActivityName);
             khNewReflectionActivity.StartActivity();
         }
-        else if (_khActivityName == "Listing") {
-            ListingActivity khNewListingActivity = new ListingActivity();
-        }
         else if (_khActivityName == "Breathing") {
-            BreathingActivity khNewBreathingActivity = new BreathingActivity();
+            BreathingActivity khNewBreathingActivity = new BreathingActivity(_khActivityName);
+            khNewBreathingActivity.StartActivity();
+        }
+        else if (_khActivityName == "Listing") {
+            ListingActivity khNewListingActivity = new ListingActivity(_khActivityName);
+            khNewListingActivity.StartActivity();
         }
     }
 
