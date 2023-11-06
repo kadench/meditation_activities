@@ -69,7 +69,7 @@ class ReflectionActivity : Activity {
             if (DateTime.UtcNow - khStartTime >= TimeSpan.FromSeconds(_khDuration)) {
                 break;
             }
-            if (i <= 8) {
+            if (i > 9) {
                 break;
             }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\meditation_activities\\Sandbox.csproj": {}
+    "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\meditation_activities\\Sandbox.csproj": {}
   },
   "projects": {
-    "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\meditation_activities\\Sandbox.csproj": {
+    "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\meditation_activities\\Sandbox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\meditation_activities\\Sandbox.csproj",
+        "projectUniqueName": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\meditation_activities\\Sandbox.csproj",
         "projectName": "Sandbox",
-        "projectPath": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\meditation_activities\\Sandbox.csproj",
+        "projectPath": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\meditation_activities\\Sandbox.csproj",
         "packagesPath": "C:\\Users\\garfu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\meditation_activities\\obj\\",
+        "outputPath": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\meditation_activities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\garfu\\AppData\\Roaming\\NuGet\\NuGet.Config"
