@@ -47,7 +47,7 @@ class ReflectionActivity : Activity {
     }
 
     // Goes through the activity
-    public void StartActivity() {
+    public void KhStartActivity() {
     KhStartingMessage(_khActivityName);
         Thread.Sleep(1000);
     string khPrompt = KhGetPrompt();

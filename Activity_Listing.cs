@@ -40,7 +40,7 @@ class ListingActivity : Activity {
         _khPrompt = khRandomString;
     }
 
-    public void StartActivity() {
+    public void KhStartActivity() {
         KhStartingMessage(_khActivityName);
         Console.Clear();
         Console.WriteLine("Please think about the following prompt for 30 seconds. You will be asked questions about it later:");

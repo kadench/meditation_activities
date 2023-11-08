@@ -44,26 +44,26 @@ class Program {
                 // Trigger the specified activity if the input matches a string from one of the lists.
                 if (khReflectionActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "reflection";
-                        Activity khNewActivity = new Activity(khActivityChoice);
+                        ReflectionActivity khNewActivity = new ReflectionActivity(khActivityChoice);
                         khNewActivity.KhBeforeActivity();
-                        khNewActivity.KhRunActivity();
+                        khNewActivity.KhStartActivity();
                         return true;
                 }
 
                 else if (khBreathingActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "breathing";
-                        Activity khNewActivity = new Activity(khActivityChoice); 
+                        BreathingActivity khNewActivity = new BreathingActivity(khActivityChoice); 
                         khNewActivity.KhBeforeActivity();
-                        khNewActivity.KhRunActivity();
+                        khNewActivity.KhStartActivity();
                         return true;
 
                 }
 
                 else if (khListingActivityStrings.Contains(khMenuChoice)) {
                         string khActivityChoice = "listing";
-                        Activity khNewActivity = new Activity(khActivityChoice);
+                        ListingActivity khNewActivity = new ListingActivity(khActivityChoice);
                         khNewActivity.KhBeforeActivity();
-                        khNewActivity.KhRunActivity();
+                        khNewActivity.KhStartActivity();
                         return true;
 
                 }

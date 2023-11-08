@@ -145,20 +145,4 @@ class Activity {
         Console.Clear();
 }
 
-    // Starts the selected activity for a set duration.
-    public void KhRunActivity() {
-        if (_khActivityName == "Reflection") {
-            ReflectionActivity khNewReflectionActivity = new ReflectionActivity(_khActivityName);
-            khNewReflectionActivity.StartActivity();
-        }
-        else if (_khActivityName == "Breathing") {
-            BreathingActivity khNewBreathingActivity = new BreathingActivity(_khActivityName);
-            khNewBreathingActivity.StartActivity();
-        }
-        else if (_khActivityName == "Listing") {
-            ListingActivity khNewListingActivity = new ListingActivity(_khActivityName);
-            khNewListingActivity.StartActivity();
-        }
-    }
-
 }

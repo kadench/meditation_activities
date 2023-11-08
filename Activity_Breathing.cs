@@ -51,7 +51,7 @@ class BreathingActivity : Activity
     }
     
     // Starts the breathing activity    
-    public void StartActivity()
+    public void KhStartActivity()
 {
     KhStartingMessage(_khActivityName);
     int khBreathingDuration = Kh4or7();
